@@ -11,10 +11,7 @@ public class DragAndDropTest {
     void testDragAndDropMethod(){
         open("https://the-internet.herokuapp.com/drag_and_drop");
         $("#column-a").shouldHave(exactText("A"));
-        DragAndDropOptions.DragAndDropTarget testDragAndDropTarget = new DragAndDropOptions.DragAndDropTarget.CssSelector("#column-b");
-        DragAndDropOptions.DragAndDropMethod testMethod = DragAndDropOptions.DragAndDropMethod.JS;
-        DragAndDropOptions testDragAndDrop = new DragAndDropOptions(testDragAndDropTarget, testMethod);
-        $("#column-a").dragAndDrop(testDragAndDrop);
+        $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
         $("#column-a").shouldHave(exactText("B"));
     }
 
